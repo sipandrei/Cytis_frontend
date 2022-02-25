@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  front_pressure: 
+  rear_pressure: 
+
+two:
+  front_pressure: 
+  rear_pressure: 
