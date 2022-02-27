@@ -1,9 +1,8 @@
-class PressetController < ApplicationController
+class PressetsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @pressets = Presset.all
-  end
-
-  def show
   end
 
   def new

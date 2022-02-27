@@ -1,0 +1,15 @@
+<%= form_with(model: @presset, local: true) do |form| %>
+  <% if @presset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "erori") %> nu permit salvarea setarilor</h2>
+
+      <ul>
+        <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<% end %>
