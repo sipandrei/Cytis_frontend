@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :to_welcome, except: [:welcome]
+  before_action :from_welcome, only: [:welcome]
+
   def welcome
   end
 
@@ -7,8 +8,9 @@ class PagesController < ApplicationController
   end
 
   private
-  def to_welcome
-    redirect_to :welcome unless current_user
+  def from_welcome
+    redirect_to :inflator if current_user
+
   end
 
 end

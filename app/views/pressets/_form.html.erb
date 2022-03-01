@@ -11,5 +11,17 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :front_pressure %>
+    <%= form.number_field :front_pressure %>
+  </div>
 
+  <div class="field">
+    <%= form.label :rear_pressure %>
+    <%= form.number_field :rear_pressure %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+:root {
+  --big-font: 3vw;
+  --small-font: 2vw;
+  --running-width: 70vw;
+  --main-background-color: hsl(0, 0%, 90%);
+  --header-background-color: #ffffff;
+}
+
+body {
+  word-wrap: break-word;
+  overflow-x: hidden;
+  background-color: var(--main-background-color);
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 10fr auto;
+  line-height: normal;
+}
+
+footer,
+header {
+  background-color: var(--header-background-color);
+  box-shadow: 0px 0px 5px 0.5px grey;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  width: 100vw;
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  z-index: 1;
+  padding-bottom: 1rem;
+  grid-column: 1 / 4;
+  grid-area: header;
+}
+
+footer {
+  padding-top: 1rem;
+  grid-column: 1 / 2;
+  grid-area: footer;
+  width: 100%;
+}
+
+main {
+  font-family: "Noticia Text", serif;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  grid-area: main;
+  width: 100%;
+}
+
+.big {
+  height: 50%;
+  width: 100%;
+}
+
+p.author {
+  font-size: 1vw;
+  color: #333;
+}
+
+.big p {
+  font-size: var(--big-font);
+}
+
+.big p.author {
+  font-size: var(--small-font);
+}
+
+nav {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h4 {
+  margin: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+}
+
+nav a {
+  padding: 0.25rem 1rem;
+  border-right: 2px hidden;
+  border-left: 2px hidden;
+}
+
+a {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+nav a:hover {
+  color: grey;
+}
+
+.flex-col-centered {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.center {
+  width: var(--running-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  display: block;
+  margin: 1% auto;
+  padding-bottom: 1%;
+  font-weight: bold;
+  font-size: var(--big-font);
+  border-bottom: 2px solid grey;
+}
+
+#copyright {
+  color: grey;
+  font-size: var(--small-font);
+}
+
+small {
+  color: grey;
+  font-size: var(--small-font);
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.5vmax;
+}
+
+.auth {
+  border-top: 1px grey solid;
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+}

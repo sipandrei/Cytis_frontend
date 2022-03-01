@@ -1,0 +1,8 @@
+<div class="flex-col-centered">
+  <h1>Cytis</h1>
+  <nav>
+    <%= link_to "Pressure Presets", pressets_path if current_user %>
+    <%= link_to "Change Pressure", inflator_path %>
+  </nav>
+  <%= render "/layouts/auth" %>
+</div>
