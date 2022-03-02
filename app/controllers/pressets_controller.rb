@@ -13,22 +13,19 @@ class PressetsController < ApplicationController
   end
 
   def create
-    @presset = Presset.new(preset_params)
+    @presset = current_user.pressets.build(presset_params)
 
-    respond_to do
-      if @presset.save
-        redirect_to presset_url(@presset), notice: "Pressure Presset saved successfully"
-      else
-        render :new, status: :unprocessable_entity
-      end
-
+    if @presset.save
+      redirect_to presset_url(@presset), notice: "Pressure Presset saved successfully"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.html { redirect_to article_url(@article), notice: "Presset was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }

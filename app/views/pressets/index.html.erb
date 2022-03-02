@@ -1,0 +1,20 @@
+<% @pressets.each_with_index do |preset,i| %>
+  <div class="preset">
+    <h2 class="small">
+      Preset <%= i+1 %>
+    </h2>
+
+    <%= link_to inflator_path(pressure: preset.front_pressure), class: "preset-element" do %>
+      <p class="small">Front Pressure</p>
+      <h3><%= preset.front_pressure %></h3>
+      <p class="small">psi</p>
+    <% end %>
+
+    <%= link_to inflator_path(pressure: preset.rear_pressure), class: "preset-element" do %>
+      <p class="small">Rear Pressure</p>
+      <h3><%= preset.rear_pressure %></h3>
+      <p class="small">psi</p>
+    <% end %>
+    <%= link_to "Edit", edit_presset_path(preset), class: "small" %>
+  </div>
+<% end %>

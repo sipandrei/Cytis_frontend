@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, conrollers: {registrations: 'registrations'}
+  devise_for :users, controllers: {registrations: 'registrations'}
   resources :pressets, except: [:show]
   root 'pages#inflator'
   get 'welcome' => 'pages#welcome'
