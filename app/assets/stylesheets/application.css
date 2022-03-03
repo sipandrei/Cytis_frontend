@@ -198,12 +198,15 @@ small {
   padding: 1rem;
 }
 
-input {
+input,
+button {
   border: 1px solid #333;
   border-radius: 5px;
   text-align: center;
   margin: 0.5rem 0;
-  padding: 1%;
+  padding: 2%;
+  background-color: #d3d3d3;
+  cursor: pointer;
 }
 
 .preset-element {
@@ -219,4 +222,34 @@ input {
 
 a:hover {
   color: #444;
+}
+
+#pressure-input {
+  aspect-ratio: 1;
+  width: 2rem;
+  margin: 0.1rem auto;
+  display: block;
+}
+
+#current-pressure {
+  margin: 1.4rem auto;
+  display: block;
+}
+
+#get-pressure,
+#set-pressure {
+  display: block;
+  margin: auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

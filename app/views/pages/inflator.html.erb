@@ -1,0 +1,19 @@
+  <div class="preset">
+    <div class="preset-pressure">
+      <div class="preset-element" >
+        <p class="small">Current Pressure</p>
+        <h3 id="current-pressure">...</h3>
+        <p class="small">psi</p>
+        <button id="get-pressure">Get Pressure</button>
+      </div>
+
+      <div class="preset-element">
+        <form id="pressure-form">
+          <p class="small">Wanted Pressure</p>
+          <input id="pressure-input" type="number" value=<%= params[:pressure] ? params[:pressure] : 0 %>>
+          <p class="small">psi</p>
+          <button type="submit" id="set-pressure">Set Pressure</button>
+        </form>
+      </div>
+    </div>
+  </div>
