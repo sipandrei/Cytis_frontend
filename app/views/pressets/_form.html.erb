@@ -1,23 +1,26 @@
-<%= form_with(model: @presset, local: true) do |form| %>
-  <% if @presset.errors.any? %>
+
+<%= form_with(model: presset, local: true, class: "form preset" )do |form| %>
+  <h2 class="small">
+  <%= "#{operation} Preset" %>
+  </h2>
+  <% if presset.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@presset.errors.count, "error") %> prohibit the creation of the preset</h2>
+      <h2><%= pluralize(presset.errors.count, "error") %> prohibit the creation of the preset</h2>
 
       <ul>
-        <% @presset.errors.each do |error| %>
+        <% presset.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :front_pressure %>
+  <div class="preset-element">
+    <%= form.label :front_pressure %> <br>
     <%= form.number_field :front_pressure %>
   </div>
 
-  <div class="field">
-    <%= form.label :rear_pressure %>
+  <div class="preset-element">
+    <%= form.label :rear_pressure %> <br>
     <%= form.number_field :rear_pressure %>
   </div>
 
