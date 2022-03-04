@@ -5,6 +5,8 @@ const pressureInput = document.querySelector("#pressure-input");
 const setForm = document.querySelector("#pressure-form");
 const getButton = document.querySelector("#get-pressure");
 
+let deviceCache = null;
+
 currentPressure.innerText = 0;
 
 connectButton.addEventListener("click", connect);
@@ -16,10 +18,32 @@ function onSetPressure(e) {
   e.preventDefault();
   send(pressureInput.value);
   pressureInput.value = "";
-  pressureInput.focus();
 }
 
-function connect() {}
+function connect() {
+  return (deviceCache ? Promise.resolve(deviceCache) : requestBluetoothDevice())
+    .then((device) => connectDeviceAndCacheCharacteristic(device))
+    .then((characteristic) => startNotifications(characteristic))
+    .catch((error) => console.log(error));
+}
+
+function requestBluetoothDevice() {
+  log("Requesting Bluetooth Device...");
+  return navigator.bluetooth
+    .requestDevice({
+      filters: [{ services: [0xffe0] }],
+    })
+    .then((device) => {
+      log(`\"${device.name}\" bluetooth device selected`);
+      deviceCache = device;
+
+      return deviceCache;
+    });
+}
+
+function startNotifications() {}
+
+function log(data, type = "") {}
 
 function disconnect() {}
 

@@ -1,9 +1,7 @@
   <div class="preset" id="inflator">
-    <div id="terminal">
-      <div>Device connection...</div>
-      <div class="out">Outcoming message</div>
-      <div class="in">Incoming message</div>
-    </div>
+    <button type="button" class="bluetooth-link" id="connect">Connect to device</button>
+    <button type="button" class="bluetooth-link" id="disconnect">Disconnect</button>
+
     <div class="preset-pressure">
       <div class="preset-element" >
         <p class="small">Current Pressure</p>
@@ -21,7 +19,11 @@
         </form>
       </div>
     </div>
-    <button type="button" class="bluetooth-link" id="connect">Connect to device</button>
-    <button type="button" class="bluetooth-link" id="disconnect">Disconnect</button>
+
+    <div id="terminal">
+      <div>Device connection...</div>
+      <div class="out">Outcoming message</div>
+      <div class="in">Incoming message</div>
+    </div>
   </div>
 <%= javascript_pack_tag "pages/inflator" %>

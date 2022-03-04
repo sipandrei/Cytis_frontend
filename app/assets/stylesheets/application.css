@@ -214,6 +214,7 @@ button {
   padding: 0.5rem;
   border-radius: 5px;
   box-shadow: 0 0 7px rgb(111, 111, 111);
+  margin: auto;
 }
 
 .preset-element h3 {
@@ -259,7 +260,7 @@ input[type="number"] {
 }
 
 #terminal {
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 #terminal div {
