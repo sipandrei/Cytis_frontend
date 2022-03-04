@@ -4,8 +4,10 @@ const currentPressure = document.querySelector("#current-pressure");
 const pressureInput = document.querySelector("#pressure-input");
 const setForm = document.querySelector("#pressure-form");
 const getButton = document.querySelector("#get-pressure");
+const terminalContainer = document.querySelector("#terminal");
 
 let deviceCache = null;
+let characteristicCache = null;
 
 currentPressure.innerText = 0;
 
@@ -41,9 +43,47 @@ function requestBluetoothDevice() {
     });
 }
 
-function startNotifications() {}
+function connectDeviceAndCacheCharacteristic(device) {
+  if (device.gatt.connected && characteristicCache) {
+    return Promise.resolve(characteristicCache);
+  }
 
-function log(data, type = "") {}
+  log("Connecting to Gatt server...");
+
+  return device.gatt
+    .connect()
+    .then((server) => {
+      log("GATT server connected, getting service...");
+
+      return server.getPrimaryService(0xffe0);
+    })
+    .then((service) => {
+      log("Service found, getting characteristic...");
+
+      return service.getCharacteristic(0xffe1);
+    })
+    .then((characteristic) => {
+      log("Characteristic found");
+      characteristicCache = characteristic;
+
+      return characteristicCache;
+    });
+}
+
+function startNotifications(characteristic) {
+  log("Starting notifications...");
+
+  return characteristic.startNotifications().then(() => {
+    log("Notifications started");
+  });
+}
+
+function log(data, type = "") {
+  terminalContainer.insertAdjacentHTML(
+    "beforeend",
+    "<div" + (type ? ' class="' + type + '"' : "") + ">" + data + "</div>"
+  );
+}
 
 function disconnect() {}
 
