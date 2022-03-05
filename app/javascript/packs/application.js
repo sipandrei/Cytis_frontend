@@ -11,3 +11,9 @@ import "channels";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/service-worker.js", { scope: "/" });
+  });
+}

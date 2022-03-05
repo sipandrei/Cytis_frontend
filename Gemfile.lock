@@ -171,8 +171,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    serviceworker-rails (0.6.0)
-      railties (>= 3.1)
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -226,7 +224,6 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.4)
   rails_real_favicon
   selenium-webdriver
-  serviceworker-rails
   spring
   turbolinks (~> 5)
   tzinfo-data
