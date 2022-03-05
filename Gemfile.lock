@@ -95,6 +95,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.1)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -145,6 +146,10 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails_real_favicon (0.1.1)
+      json (>= 1.7, < 3)
+      rails
+      rubyzip (~> 2)
     railties (6.1.4.6)
       actionpack (= 6.1.4.6)
       activesupport (= 6.1.4.6)
@@ -166,6 +171,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -217,7 +224,9 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.4)
+  rails_real_favicon
   selenium-webdriver
+  serviceworker-rails
   spring
   turbolinks (~> 5)
   tzinfo-data
