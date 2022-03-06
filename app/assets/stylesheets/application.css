@@ -55,6 +55,7 @@ header {
 
 footer {
   padding-top: 1rem;
+  margin-top: 1rem;
   grid-column: 1 / 2;
   grid-area: footer;
   width: 100%;
@@ -62,11 +63,14 @@ footer {
 
 main {
   font-family: "Open Sans", sans-serif;
-
+  text-align: center;
   margin: 0 auto;
   background-color: whitesmoke;
   grid-area: main;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .big {
@@ -133,6 +137,12 @@ nav a:hover {
 .center {
   width: var(--running-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .section-title {
@@ -179,7 +189,6 @@ small {
   padding: 1rem 1rem;
   box-shadow: 0 0 5px #333;
   border-radius: 10px;
-  margin: 1rem auto;
 }
 
 .preset-pressure {
@@ -276,5 +285,5 @@ input[type="number"] {
 }
 
 #inflator {
-  margin: auto;
+  margin-bottom: 2rem;
 }
