@@ -140,8 +140,8 @@ function handleCharacteristicValueChanged(event) {
 }
 
 function send(value) {
-  value = Number(value);
-
+  value = String(value);
+  value = `setPressure ${value}`;
   if (!value || !characteristicCache) return;
   writeToCharacteristic(characteristicCache, value);
   log(value, "out");
