@@ -15,18 +15,27 @@ connectButton.addEventListener("click", connect);
 disconnectButton.addEventListener("click", disconnect);
 
 setForm.addEventListener("submit", onSetPressure);
+getButton.addEventListener("click", getPressure);
+
+function getPressure() {
+  let value = "c";
+  if (!value || !characteristicCache) return;
+  writeToCharacteristic(characteristicCache, value);
+  log(value, "out");
+}
 
 function onSetPressure(e) {
   e.preventDefault();
-  send(pressureInput.value);
-  pressureInput.value = "";
+  sendPressure(pressureInput.value);
+  pressureInput.value = "0";
 }
 
 function connect() {
+  if (!navigator.bluetooth) return log("Web Bluetooth not suported :(");
   return (deviceCache ? Promise.resolve(deviceCache) : requestBluetoothDevice())
     .then((device) => connectDeviceAndCacheCharacteristic(device))
     .then((characteristic) => startNotifications(characteristic))
-    .catch((error) => console.log(error));
+    .catch((error) => log(error.message));
 }
 
 function requestBluetoothDevice() {
@@ -85,7 +94,8 @@ function connectDeviceAndCacheCharacteristic(device) {
       characteristicCache = characteristic;
 
       return characteristicCache;
-    });
+    })
+    .catch((error) => log(error.message));
 }
 
 function startNotifications(characteristic) {
@@ -135,12 +145,13 @@ function disconnect() {
 
 function handleCharacteristicValueChanged(event) {
   let value = new TextDecoder().decode(event.target.value);
-  if (parseInt(value)) {
-    currentPressure.innerText = value;
-  } else log("Invalid data received");
+  value = value.split(" ");
+  if (value[0] == "current") {
+    currentPressure.innerText = value[1];
+  } else log("Invalid current pressure response");
 }
 
-function send(value) {
+function sendPressure(value) {
   value = String(value);
   value = `setPressure ${value}`;
   if (!value || !characteristicCache) return;
