@@ -19,13 +19,15 @@ getButton.addEventListener("click", getPressure);
 
 function getPressure() {
   let value = "c";
+  if (!deviceCache) return log("Please connect to device");
   if (!value || !characteristicCache) return;
   writeToCharacteristic(characteristicCache, value);
-  log(value, "out");
+  console.log(value);
 }
 
 function onSetPressure(e) {
   e.preventDefault();
+  if (!deviceCache) return log("Please connect to device");
   sendPressure(pressureInput.value);
   pressureInput.value = "0";
 }
@@ -148,7 +150,10 @@ function handleCharacteristicValueChanged(event) {
   value = value.split(" ");
   if (value[0] == "current") {
     currentPressure.innerText = value[1];
-  } else log("Invalid current pressure response");
+  } else {
+    log("Invalid current pressure response");
+    console.log(value);
+  }
 }
 
 function sendPressure(value) {
@@ -156,7 +161,7 @@ function sendPressure(value) {
   value = `setPressure ${value}`;
   if (!value || !characteristicCache) return;
   writeToCharacteristic(characteristicCache, value);
-  log(value, "out");
+  console.log(value);
 }
 
 function writeToCharacteristic(characteristic, data) {
