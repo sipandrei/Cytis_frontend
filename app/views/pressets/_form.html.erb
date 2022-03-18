@@ -14,12 +14,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="preset-element">
+  <div class="preset-element form-element">
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="preset-element form-element">
     <%= form.label :front_pressure %> <br>
     <%= form.number_field :front_pressure, class: "pressure-value" %>
   </div>
 
-  <div class="preset-element">
+  <div class="preset-element form-element">
     <%= form.label :rear_pressure %> <br>
     <%= form.number_field :rear_pressure, class: "pressure-value" %>
   </div>

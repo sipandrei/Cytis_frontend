@@ -44,7 +44,7 @@ class PressetsController < ApplicationController
 
   private
   def presset_params
-    params.require(:presset).permit(:user_id, :front_pressure, :rear_pressure)
+    params.require(:presset).permit(:user_id, :front_pressure, :rear_pressure, :name)
   end
 
 end

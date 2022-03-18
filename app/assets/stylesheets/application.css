@@ -287,3 +287,11 @@ input[type="number"] {
 #inflator {
   margin-bottom: 2rem;
 }
+
+.form-element {
+  width: 50%;
+}
+
+.form-element input {
+  max-width: 90%;
+}
