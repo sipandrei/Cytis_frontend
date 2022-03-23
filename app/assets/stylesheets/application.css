@@ -55,13 +55,13 @@ header {
 
 footer {
   padding-top: 1rem;
-  margin-top: 1rem;
   grid-column: 1 / 2;
   grid-area: footer;
   width: 100%;
 }
 
 main {
+  padding: 1rem;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   margin: 0 auto;
