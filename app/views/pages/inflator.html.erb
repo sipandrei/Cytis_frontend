@@ -1,10 +1,9 @@
-  <div class="preset" id="inflator">
+  <div class="presetWelcome" id="inflator">
     <button type="button" class="bluetooth-link" id="connect">Connect to device</button>
-    <button type="button" class="bluetooth-link" id="disconnect">Disconnect</button>
 
     <div class="preset-pressure">
       <div class="preset-element" >
-        <p class="small">Current Pressure</p>
+        <p class="small"><b>Current</b> Pressure</p>
         <h3 id="current-pressure">...</h3>
         <p class="small">psi</p>
         <button id="get-pressure">Get Pressure</button>
@@ -12,16 +11,19 @@
 
       <div class="preset-element">
         <form id="pressure-form">
-          <p class="small">Wanted Pressure</p>
+          <p class="small"><b>Wanted</b> Pressure</p>
           <input class="pressure-value" id="pressure-input" type="number" value=<%= params[:pressure] ? params[:pressure] : 0 %>>
           <p class="small">psi</p>
           <button type="submit" id="set-pressure">Set Pressure</button>
         </form>
       </div>
     </div>
+
+    <button type="button" class="bluetooth-link" id="disconnect">Disconnect</button>
     <div id="terminal">
       <p></p>
     </div>
+
   </div>
 
 <%= javascript_pack_tag "pages/inflator" %>

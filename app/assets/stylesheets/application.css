@@ -191,11 +191,30 @@ small {
   border-radius: 10px;
 }
 
+.presetWelcome {
+  width: fit-content;
+  min-width: 25vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcdcdc;
+  padding: 1rem 1rem;
+  box-shadow: 0 0 5px #333;
+  border-radius: 10px;
+  gap: 1rem;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+
 .preset-pressure {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 3rem;
+  width: 70%;
+  justify-content: space-evenly;
 }
 
 .form {
@@ -212,10 +231,11 @@ button {
   border: 1px solid #333;
   border-radius: 5px;
   text-align: center;
-  margin: 0.5rem 0;
-  padding: 2%;
+  margin: 0.5rem;
+  padding: 1% 2%;
   background-color: #d3d3d3;
   cursor: pointer;
+  width: fit-content;
 }
 
 .preset-element {
@@ -286,6 +306,8 @@ input[type="number"] {
 
 #inflator {
   margin-bottom: 2rem;
+  width: 50vw;
+  min-width: 300px;
 }
 
 .form-element {
